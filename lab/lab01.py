@@ -11,9 +11,12 @@ def both_positive(x, y):
     >>> both_positive(1, 1)
     True
     """
-    "*** YOUR CODE HERE ***"
-    return x and y > 0
-
+    state = True
+    if x > 0 and y > 0:
+        state = True
+    else:
+        state = False        
+    return state    
 
 ## while Loops ##
 
@@ -29,8 +32,11 @@ def factors(n):
     2
     1
     """
-    "*** YOUR CODE HERE ***"
-
+    div = n
+    while div>0:
+        if n % div == 0:
+            print (div)
+        div -= 1    
 
 # Q8
 def fib(n):
@@ -53,4 +59,9 @@ def fib(n):
     >>> fib(100)
     354224848179261915075
     """
-    "*** YOUR CODE HERE ***"
+    first = 0
+    second = 1
+    while n>0:
+        first, second = second, first + second
+        n -= 1
+    return first
