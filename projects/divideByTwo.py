@@ -1,16 +1,16 @@
 from pythonds.basic.stack import Stack
 
-def divideByTwo(num):
+def divideByTwo(num,base):
+	digits = "0123456789ABCDEF"
 	s = Stack()
 	while num > 0:
-		mod = num % 2
+		mod = num % base
 		s.push(mod)
-		num = num // 2
+		num = num // base
 	mystr = ''
 	while not s.isEmpty():
 		mystr += str(s.pop())
 
 	return mystr
 
-divideByTwo(233)
 
