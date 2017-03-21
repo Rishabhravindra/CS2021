@@ -10,9 +10,7 @@ def f_to_c(fahrenheit):
     >>> f_to_c(-31)
     -35.0
     """
-    celsius = (fahrenheit-32)*(5/9)
-    return celsius
-
+    return (fahrenheit-32)*5/9
 
 
 def c_to_f(celsius):
@@ -25,9 +23,7 @@ def c_to_f(celsius):
    >>> c_to_f(-25)
    -13.0
    """
-   "*** YOUR CODE HERE ***"
-   fahrenheit = celsius * 9/5 + 32
-   return fahrenheit
+   return (celsius) * 9/5 +32
 
 # Q5
 def dispatch_function(option1, f1, option2, f2):
@@ -44,14 +40,14 @@ def dispatch_function(option1, f1, option2, f2):
    ...
    AssertionError
    """
-   def calc(option, value):
-	   	assert option == option1 or option == option2
-	   	if option == option1:
-	   		return f1(value)
-	   	else:
-	   		return f2(value)
-   return calc
-   	
+   def func(option,value):
+    assert option == option1 or option == option2
+    if(option==option1):
+      return f1(value)
+    else:
+      return f2(value)
+   return func
+
 
 # Q6
 def make_buzzer(n):
@@ -71,15 +67,16 @@ def make_buzzer(n):
    8
    9
    """
-   def calc(m):
-   	num = 0
-   	while num < m :
-   		if num % n == 0 :
-   			print("Buzz!")
-   		else:
-   			print(num)
-   		num += 1   			
-   return calc		
+   def Buzz(num):
+    i = 0
+    while i < num:
+      if (i%n==0):
+        print ("Buzz!")
+      else:
+        print (i)
+      i += 1 
+   return Buzz 
+
 #  Q7
 from operator import add, sub
 
@@ -92,10 +89,11 @@ def a_plus_abs_b(a, b):
    5
    """
    if b < 0:
-        f = operator.add(a + -b)
+    f = add(a,-b)
    else:
-        f =  operator.add(a + b)
+    f = add(a,b)
    return f(a, b)
+
 ##
 ###  Q8
 ##def two_of_three(a, b, c):
