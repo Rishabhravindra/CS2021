@@ -6,15 +6,13 @@ def checkPar(mystr):
 	#loop through the string 
 	isBal = True
 	while isBal and index < len(mystr):
-		for i in mystr:
-			if i == "(":
-				s.push("(")
+		if mystr[index] == "(":
+			s.push("(")
+		else:
+			if s.isEmpty():
+				isBal = False
 			else:
-				if s.isEmpty():
-					isBal = False
-				else:
-					s.pop()
-
+				s.pop()
 		index = index + 1
 	if isBal and s.isEmpty():
 		return True
@@ -23,3 +21,31 @@ def checkPar(mystr):
 
 print (checkPar('((()))'))
 print (checkPar('(()'))
+
+def checkMulPar(mystr):
+	index = 0
+	isBal = True
+	s = Stack()
+	while index < len(mystr) and isBal:
+		sym = mystr[index]
+		if sym in "({[":
+			s.push(sym)
+		else:
+			if s.isEmpty():
+				isBal = False
+			else:
+				top = s.pop()
+				if not isMatch(top, sym):
+					isBal = False
+		index = index + 1
+	if isBal and s.isEmpty():
+		return True
+	else:
+		return False
+def isMatch(open, close):
+	opens = "({["
+	closers = ")}]"
+	return opens.index(open) == closers.index(close)	
+print (checkMulPar('{{([][])}()}'))
+print (checkMulPar('[{()]'))
+
